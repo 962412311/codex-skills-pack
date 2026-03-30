@@ -1,69 +1,69 @@
 # Codex Skills Pack
 
-[English](./README.md) | [简体中文](./README.zh.md)
+[English](./README.en.md) | [简体中文](./README.md)
 
-This repository maintains the Codex skill inventory that is consumed by the WSL bootstrap repo.
+这个仓库维护 Codex 的 skills 清单，会被 WSL bootstrap 仓库消费。
 
-It is responsible for:
+它负责：
 
-- declaring which upstream repositories provide which skills
-- recording the original installation instructions from the source projects
-- keeping the Codex-specific copy paths in one place
-- serving as the single manifest source for the bootstrapper
+- 声明每个 skill 来自哪个上游仓库
+- 记录来源项目里的原始安装说明
+- 统一管理 Codex 侧的复制路径
+- 作为 bootstrap 的唯一 manifest 来源
 
-## What This Is Not
+## 这不是
 
-- It is not the Windows bootstrapper
-- It is not the Codex installer
-- It does not configure WSL, Node.js, or `@openai/codex`
+- 这不是 Windows bootstrap 仓库
+- 这不是 Codex 安装器
+- 这不负责配置 WSL、Node.js 或 `@openai/codex`
 
-Those responsibilities live in [wsl-codex-bootstrap](https://github.com/962412311/wsl-codex-bootstrap).
+这些职责属于 [wsl-codex-bootstrap](https://github.com/962412311/wsl-codex-bootstrap)。
 
-## Quick Start
+## 快速开始
 
-1. Clone this repository.
-2. Review or edit [`skills.manifest.json`](./skills.manifest.json).
-3. Keep the manifest in sync with the sources you want Codex to install.
-4. Point the bootstrap repository at this manifest, either via `skills-source.json` or the `-SkillsManifestPath` override.
+1. 克隆这个仓库。
+2. 查看或修改 [`skills.manifest.json`](./skills.manifest.json)。
+3. 保持 manifest 与你希望 Codex 安装的来源一致。
+4. 通过 `skills-source.json` 或 `-SkillsManifestPath` 让 bootstrap 指向这个 manifest。
 
-## Sources
+## 来源
 
-This pack currently tracks:
+当前维护的来源包括：
 
-- `web-access` from `eze-is/web-access`
-- the 14 `superpowers` skills from `obra/superpowers`
-- `frontend-design` from `anthropics/claude-plugins-official`
-- document and technical skills from `anthropics/skills`
+- `web-access`，来自 `eze-is/web-access`
+- 14 个 `superpowers` skills，来自 `obra/superpowers`
+- `frontend-design`，来自 `anthropics/claude-plugins-official`
+- 文档和技术类 skills，来自 `anthropics/skills`
 
-See [`docs/source-inventory.md`](./docs/source-inventory.md) for the exact skill mapping.
+精确的映射关系见 [`docs/source-inventory.md`](./docs/source-inventory.md)。
 
-## Installation Model
+## 安装模型
 
-The bootstrap repo reads `skills.manifest.json` from this repository or from a published raw URL.
+bootstrap 仓库会从这里读取 `skills.manifest.json`，或者读取公开的 raw URL。
 
-The manifest lists the upstream Git repositories and the exact path for each installable skill folder.
+manifest 里定义了上游 Git 仓库，以及每个可安装 skill 的准确路径。
 
-## Original Installation Notes
+## 原始安装说明
 
-See [`docs/upstream-installation.md`](./docs/upstream-installation.md) for the upstream install commands and source references.
+见 [`docs/upstream-installation.md`](./docs/upstream-installation.md)。
 
-## Public Release
+## 公开发布
 
-After publishing this repository, update the bootstrap repo's `skills-source.json` to the raw GitHub URL for this manifest.
+发布这个仓库之后，把 bootstrap 的 `skills-source.json` 指向这里的 raw GitHub URL。
 
-Recommended naming:
+建议命名：
 
-- `codex-skills-pack` for this repository
-- `wsl-codex-bootstrap` for the Windows bootstrapper
+- `codex-skills-pack` 作为这个仓库名
+- `wsl-codex-bootstrap` 作为 Windows bootstrap 仓库名
 
-## Maintenance Rules
+## 维护规则
 
-- Keep source mappings declarative in `skills.manifest.json`.
-- Preserve canonical source selection for duplicate skills such as `frontend-design`.
-- Document any new source in `docs/upstream-installation.md` before wiring it into the bootstrap flow.
+- 保持 `skills.manifest.json` 里的来源映射是声明式的
+- 对于重名 skill，保留 canonical source，例如 `frontend-design`
+- 新增来源前，先在 `docs/upstream-installation.md` 记录
 
-## Repository Layout
+## 仓库结构
 
-- `skills.manifest.json` - machine-readable manifest consumed by bootstrap
-- `docs/` - source inventory and upstream installation notes
-- `skills/` - local helper skills used to maintain this pack
+- `skills.manifest.json` - bootstrap 消费的机器可读 manifest
+- `docs/` - 来源清单和原始安装说明
+- `skills/` - 用于维护这个仓库的本地 helper skills
