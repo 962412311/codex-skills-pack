@@ -1,5 +1,7 @@
 # Codex Skills Pack
 
+[English](./README.md) | [简体中文](./README.zh.md)
+
 This repository maintains the Codex skill inventory that is consumed by the WSL bootstrap repo.
 
 It is responsible for:
