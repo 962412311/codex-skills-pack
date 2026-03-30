@@ -7,6 +7,7 @@ It is responsible for:
 - declaring which upstream repositories provide which skills
 - recording the original installation instructions from the source projects
 - keeping the Codex-specific copy paths in one place
+- serving as the single manifest source for the bootstrapper
 
 ## What This Is Not
 
@@ -15,6 +16,13 @@ It is responsible for:
 - It does not configure WSL, Node.js, or `@openai/codex`
 
 Those responsibilities live in [wsl-codex-bootstrap](https://github.com/962412311/wsl-codex-bootstrap).
+
+## Quick Start
+
+1. Clone this repository.
+2. Review or edit [`skills.manifest.json`](./skills.manifest.json).
+3. Keep the manifest in sync with the sources you want Codex to install.
+4. Point the bootstrap repository at this manifest, either via `skills-source.json` or the `-SkillsManifestPath` override.
 
 ## Sources
 
@@ -36,6 +44,21 @@ The manifest lists the upstream Git repositories and the exact path for each ins
 ## Original Installation Notes
 
 See [`docs/upstream-installation.md`](./docs/upstream-installation.md) for the upstream install commands and source references.
+
+## Public Release
+
+After publishing this repository, update the bootstrap repo's `skills-source.json` to the raw GitHub URL for this manifest.
+
+Recommended naming:
+
+- `codex-skills-pack` for this repository
+- `wsl-codex-bootstrap` for the Windows bootstrapper
+
+## Maintenance Rules
+
+- Keep source mappings declarative in `skills.manifest.json`.
+- Preserve canonical source selection for duplicate skills such as `frontend-design`.
+- Document any new source in `docs/upstream-installation.md` before wiring it into the bootstrap flow.
 
 ## Repository Layout
 
