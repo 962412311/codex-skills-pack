@@ -1,0 +1,259 @@
+{
+  "version": 2,
+  "sources": [
+    {
+      "id": "web-access",
+      "type": "git",
+      "repo": "https://github.com/eze-is/web-access.git"
+    },
+    {
+      "id": "superpowers",
+      "type": "git",
+      "repo": "https://github.com/obra/superpowers.git"
+    },
+    {
+      "id": "claude-plugins-official",
+      "type": "git",
+      "repo": "https://github.com/anthropics/claude-plugins-official.git"
+    },
+    {
+      "id": "anthropic-agent-skills",
+      "type": "git",
+      "repo": "https://github.com/anthropics/skills.git"
+    }
+  ],
+  "skills": [
+    {
+      "name": "web-access",
+      "sourceId": "web-access",
+      "sourcePath": ".",
+      "enabled": true,
+      "description": "Web access skill from eze-is/web-access."
+    },
+    {
+      "name": "brainstorming",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/brainstorming",
+      "enabled": true,
+      "description": "Structured brainstorming skill from obra/superpowers."
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/dispatching-parallel-agents",
+      "enabled": true,
+      "description": "Parallel agent dispatch skill from obra/superpowers."
+    },
+    {
+      "name": "executing-plans",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/executing-plans",
+      "enabled": true,
+      "description": "Plan execution skill from obra/superpowers."
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/finishing-a-development-branch",
+      "enabled": true,
+      "description": "Branch-finishing workflow skill from obra/superpowers."
+    },
+    {
+      "name": "receiving-code-review",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/receiving-code-review",
+      "enabled": true,
+      "description": "Code review intake skill from obra/superpowers."
+    },
+    {
+      "name": "requesting-code-review",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/requesting-code-review",
+      "enabled": true,
+      "description": "Code review request skill from obra/superpowers."
+    },
+    {
+      "name": "subagent-driven-development",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/subagent-driven-development",
+      "enabled": true,
+      "description": "Subagent-driven development skill from obra/superpowers."
+    },
+    {
+      "name": "systematic-debugging",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/systematic-debugging",
+      "enabled": true,
+      "description": "Systematic debugging skill from obra/superpowers."
+    },
+    {
+      "name": "test-driven-development",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/test-driven-development",
+      "enabled": true,
+      "description": "TDD skill from obra/superpowers."
+    },
+    {
+      "name": "using-git-worktrees",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/using-git-worktrees",
+      "enabled": true,
+      "description": "Git worktree skill from obra/superpowers."
+    },
+    {
+      "name": "using-superpowers",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/using-superpowers",
+      "enabled": true,
+      "description": "Superpowers entry skill from obra/superpowers."
+    },
+    {
+      "name": "verification-before-completion",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/verification-before-completion",
+      "enabled": true,
+      "description": "Verification skill from obra/superpowers."
+    },
+    {
+      "name": "writing-plans",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/writing-plans",
+      "enabled": true,
+      "description": "Plan writing skill from obra/superpowers."
+    },
+    {
+      "name": "writing-skills",
+      "sourceId": "superpowers",
+      "sourcePath": "skills/writing-skills",
+      "enabled": true,
+      "description": "Skill authoring skill from obra/superpowers."
+    },
+    {
+      "name": "frontend-design",
+      "sourceId": "claude-plugins-official",
+      "sourcePath": "plugins/frontend-design/skills/frontend-design",
+      "enabled": true,
+      "description": "Canonical frontend-design skill from claude-plugins-official."
+    },
+    {
+      "name": "algorithmic-art",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/algorithmic-art",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "brand-guidelines",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/brand-guidelines",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "canvas-design",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/canvas-design",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "claude-api",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/claude-api",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "doc-coauthoring",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/doc-coauthoring",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "docx",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/docx",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "internal-comms",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/internal-comms",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "mcp-builder",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/mcp-builder",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "pdf",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/pdf",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "pptx",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/pptx",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "skill-creator",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/skill-creator",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "slack-gif-creator",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/slack-gif-creator",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "theme-factory",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/theme-factory",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "web-artifacts-builder",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/web-artifacts-builder",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "webapp-testing",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/webapp-testing",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    },
+    {
+      "name": "xlsx",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/xlsx",
+      "enabled": true,
+      "description": "Document skills repository skill."
+    }
+  ],
+  "excluded": [
+    {
+      "name": "frontend-design",
+      "sourceId": "anthropic-agent-skills",
+      "sourcePath": "skills/frontend-design",
+      "reason": "Canonical frontend-design is sourced from claude-plugins-official to match the current Claude installation."
+    }
+  ]
+}
