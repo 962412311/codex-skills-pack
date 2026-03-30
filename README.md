@@ -14,7 +14,7 @@ It is responsible for:
 - It is not the Codex installer
 - It does not configure WSL, Node.js, or `@openai/codex`
 
-Those responsibilities live in [`wsl-codex-bootstrap`](../wsl-codex-bootstrap).
+Those responsibilities live in [wsl-codex-bootstrap](https://github.com/962412311/wsl-codex-bootstrap).
 
 ## Sources
 
