@@ -1,8 +1,10 @@
-# Codex Skills Pack
+﻿# Codex Skills Pack
 
 [English](./README.en.md) | [简体中文](./README.md)
 
 This repository only maintains the Codex skill manifest and source notes. It does not perform installation.
+
+The bootstrap repo's mainline script falls back to this repository's `main` branch manifest by default, so extra configuration is usually unnecessary.
 
 Its job is simple:
 
@@ -32,7 +34,7 @@ See [`docs/source-inventory.md`](./docs/source-inventory.md) for the exact mappi
 
 ## How It Works With Bootstrap
 
-The bootstrap repository reads `skills.manifest.json` from here and installs the listed skills into Codex's skill directory.
+The bootstrap repository prefers `skills.manifest.json` from this repository's `main` branch and installs the listed skills into Codex's skill directory.
 
 If you want to change sources, update the manifest. You do not need to change the installer logic.
 

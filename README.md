@@ -1,8 +1,10 @@
-# Codex Skills Pack
+﻿# Codex Skills Pack
 
 [English](./README.en.md) | [简体中文](./README.md)
 
 这个仓库只维护 Codex skills 的清单和来源说明，不负责安装。
+
+bootstrap 仓库的主线脚本会默认回退到这里的 `main` 分支 manifest，所以通常不需要额外配置。
 
 它的作用很直接：
 
@@ -32,7 +34,7 @@
 
 ## 怎么配合 bootstrap
 
-bootstrap 仓库会读取这里的 `skills.manifest.json`，然后自动把对应 skills 安装到 Codex 的 skills 目录。
+bootstrap 仓库会优先读取这里 `main` 分支上的 `skills.manifest.json`，然后自动把对应 skills 安装到 Codex 的 skills 目录。
 
 如果你要换来源，只需要改 manifest，不需要改安装器主逻辑。
 
