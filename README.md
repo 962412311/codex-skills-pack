@@ -29,6 +29,7 @@ bootstrap 仓库的主线脚本会默认回退到这里的 `main` 分支 manifes
 - 14 个 `superpowers` skills
 - `frontend-design`
 - 16 个文档和技术类 skills
+- 1 个本地维护 skill：`patch-context-hygiene`
 
 精确映射见 [`docs/source-inventory.md`](./docs/source-inventory.md)。
 
@@ -46,4 +47,4 @@ bootstrap 仓库会优先读取这里 `main` 分支上的 `skills.manifest.json`
 
 - `skills.manifest.json` - bootstrap 消费的机器可读 manifest
 - `docs/` - 来源清单和原始安装说明
-- `skills/` - 用于维护这个仓库的本地 helper skills
+- `skills/` - 用于维护这个仓库的本地 helper skills，例如 `patch-context-hygiene`

@@ -29,6 +29,7 @@ This pack currently tracks 33 enabled skills:
 - 14 `superpowers` skills
 - `frontend-design`
 - 16 document and technical skills
+- 1 local maintenance skill: `patch-context-hygiene`
 
 See [`docs/source-inventory.md`](./docs/source-inventory.md) for the exact mapping.
 
@@ -46,4 +47,4 @@ See [`docs/upstream-installation.md`](./docs/upstream-installation.md).
 
 - `skills.manifest.json` - machine-readable manifest consumed by bootstrap
 - `docs/` - source inventory and upstream installation notes
-- `skills/` - local helper skills used to maintain this pack
+- `skills/` - local helper skills used to maintain this pack, such as `patch-context-hygiene`
