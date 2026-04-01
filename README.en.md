@@ -23,7 +23,7 @@ The actual installer lives in [wsl-codex-bootstrap](https://github.com/962412311
 
 ## What Gets Installed
 
-This pack currently tracks 32 enabled skills:
+This pack currently tracks 33 enabled skills:
 
 - `web-access`
 - 14 `superpowers` skills

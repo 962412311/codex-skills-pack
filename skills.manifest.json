@@ -2,6 +2,11 @@
   "version": 2,
   "sources": [
     {
+      "id": "codex-skills-pack",
+      "type": "git",
+      "repo": "https://github.com/962412311/codex-skills-pack.git"
+    },
+    {
       "id": "web-access",
       "type": "git",
       "repo": "https://github.com/eze-is/web-access.git"
@@ -246,6 +251,13 @@
       "sourcePath": "skills/xlsx",
       "enabled": true,
       "description": "Document skills repository skill."
+    },
+    {
+      "name": "patch-context-hygiene",
+      "sourceId": "codex-skills-pack",
+      "sourcePath": "skills/patch-context-hygiene",
+      "enabled": true,
+      "description": "Path and patch hygiene skill from codex-skills-pack."
     }
   ],
   "excluded": [

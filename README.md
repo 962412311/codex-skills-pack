@@ -23,7 +23,7 @@ bootstrap 仓库的主线脚本会默认回退到这里的 `main` 分支 manifes
 
 ## 当前会安装什么
 
-这个仓库当前维护 32 个启用的 skills：
+这个仓库当前维护 33 个启用的 skills：
 
 - `web-access`
 - 14 个 `superpowers` skills
