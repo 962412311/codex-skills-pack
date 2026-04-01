@@ -58,6 +58,8 @@ Treat the error as data, not as a generic tool failure.
 - If the built-in `apply_patch` tool returns `No such file or directory` in WSL, do not assume the repo path is wrong.
 - First verify the WSL-side Codex wrapper at `~/.local/bin/codex` is syntactically valid.
 - Then check whether a session-local executable exists under `~/.codex/tmp/arg0/codex-arg0*/apply_patch` or `applypatch`; that direct executable can still work even when the built-in tool wrapper is broken.
+- If you need `apply_patch` to work persistently in Codex on WSL/Linux, also verify the Codex vendor `path` directory that `bin/codex.js` prepends to `PATH`, because that is the stable place to mirror the wrapper.
+- Prefer a stable wrapper in `~/.local/bin` and a symlink in the vendor `path` directory over relying only on the session-local temp shim.
 - Keep this diagnosis on the WSL home/config side, not the Windows side of the workspace.
 
 ## Practical triage
