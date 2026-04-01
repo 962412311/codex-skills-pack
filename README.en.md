@@ -2,7 +2,7 @@
 
 [English](./README.en.md) | [简体中文](./README.md)
 
-This repository only maintains the Codex skill manifest and source notes. It does not perform installation.
+This repository is the canonical home for your Codex skills: it keeps upstream source notes and also hosts your future personal skills. It does not perform installation.
 
 The bootstrap repo's mainline script falls back to this repository's `main` branch manifest by default, so extra configuration is usually unnecessary.
 
@@ -11,6 +11,7 @@ Its job is simple:
 - tell the bootstrapper which skills to install
 - record which upstream repositories provide those skills
 - map each skill to the exact upstream path used for Codex installation
+- maintain your own personal skills in the same manifest flow
 - keep the original install notes for auditability
 
 ## What This Is Not

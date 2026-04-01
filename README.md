@@ -2,7 +2,7 @@
 
 [English](./README.en.md) | [简体中文](./README.md)
 
-这个仓库只维护 Codex skills 的清单和来源说明，不负责安装。
+这个仓库是你的 Codex skills 主仓，既维护上游来源清单，也承载你后续新增的个人 skills。
 
 bootstrap 仓库的主线脚本会默认回退到这里的 `main` 分支 manifest，所以通常不需要额外配置。
 
@@ -11,6 +11,7 @@ bootstrap 仓库的主线脚本会默认回退到这里的 `main` 分支 manifes
 - 告诉 bootstrap 仓库该装哪些 skills
 - 记录每个 skill 来自哪个上游仓库
 - 说明每个 skill 在上游仓库里的准确路径
+- 维护你自己的个人 skills，并把它们纳入同一套 manifest
 - 保留原始安装说明，方便审计和维护
 
 ## 这不是

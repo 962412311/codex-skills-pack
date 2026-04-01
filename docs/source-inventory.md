@@ -1,6 +1,6 @@
-# Source Inventory
+﻿# Source Inventory
 
-This repository defines the skill inventory consumed by the WSL bootstrap repository.
+This repository defines the skill inventory consumed by the WSL bootstrap repository, including upstream skills and skills you maintain locally.
 
 ## Canonical Sources
 
@@ -11,6 +11,10 @@ This repository defines the skill inventory consumed by the WSL bootstrap reposi
 | `anthropics/claude-plugins-official` | The canonical `frontend-design` skill | `frontend-design` |
 | `anthropics/skills` | Document and technical helper skills | `algorithmic-art`, `brand-guidelines`, `canvas-design`, `claude-api`, `doc-coauthoring`, `docx`, `internal-comms`, `mcp-builder`, `pdf`, `pptx`, `skill-creator`, `slack-gif-creator`, `theme-factory`, `web-artifacts-builder`, `webapp-testing`, `xlsx` |
 | `codex-skills-pack` | Locally maintained helper skills for this repository | `patch-context-hygiene` |
+
+## Local Skills
+
+This pack is also the home for your personal skills. Add new locally authored skills here, then register them in `skills.manifest.json` so bootstrap can install them alongside upstream sources.
 
 ## Conflict Rule
 
