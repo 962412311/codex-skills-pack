@@ -22,15 +22,13 @@ bootstrap 仓库的主线脚本会默认回退到这里的 `main` 分支 manifes
 
 真正负责安装的是 [wsl-codex-bootstrap](https://github.com/962412311/wsl-codex-bootstrap)。
 
-## 当前会安装什么
+## 当前会覆盖什么
 
-这个仓库当前维护 33 个启用的 skills：
+这个仓库当前维护 33 个可由 bootstrap 安装的 skills，外加 Codex 自带的 5 个 system skills。当前 Claude 侧还装着 4 个插件包，但插件壳本身不会直接进入 Codex，相关映射见 [`docs/current-state.md`](./docs/current-state.md) 和 [`docs/plugin-notes.md`](./docs/plugin-notes.md)。
 
-- `web-access`
-- 14 个 `superpowers` skills
-- `frontend-design`
-- 16 个文档和技术类 skills
-- 1 个本地维护 skill：`patch-context-hygiene`
+- 33 个仓库维护/可安装 skills
+- 5 个 Codex 内建 system skills
+- 4 个当前已装 Claude 插件包
 
 精确映射见 [`docs/source-inventory.md`](./docs/source-inventory.md)。
 
@@ -47,5 +45,5 @@ bootstrap 仓库会优先读取这里 `main` 分支上的 `skills.manifest.json`
 ## 仓库结构
 
 - `skills.manifest.json` - bootstrap 消费的机器可读 manifest
-- `docs/` - 来源清单和原始安装说明
+- `docs/` - 来源清单、当前状态和原始安装说明
 - `skills/` - 用于维护这个仓库的本地 helper skills，例如 `patch-context-hygiene`

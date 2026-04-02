@@ -1,6 +1,6 @@
 ﻿# Source Inventory
 
-This repository defines the skill inventory consumed by the WSL bootstrap repository, including upstream skills and skills you maintain locally.
+This repository defines the installable skill inventory consumed by the WSL bootstrap repository, including upstream skills and skills you maintain locally. Codex also ships 5 built-in system skills that are visible in the current install but are not sourced from this manifest.
 
 ## Canonical Sources
 
@@ -11,6 +11,16 @@ This repository defines the skill inventory consumed by the WSL bootstrap reposi
 | `anthropics/claude-plugins-official` | The canonical `frontend-design` skill | `frontend-design` |
 | `anthropics/skills` | Document and technical helper skills | `algorithmic-art`, `brand-guidelines`, `canvas-design`, `claude-api`, `doc-coauthoring`, `docx`, `internal-comms`, `mcp-builder`, `pdf`, `pptx`, `skill-creator`, `slack-gif-creator`, `theme-factory`, `web-artifacts-builder`, `webapp-testing`, `xlsx` |
 | `codex-skills-pack` | Locally maintained helper skills for this repository | `patch-context-hygiene` |
+
+## Built-in Codex System Skills
+
+These skills are present in the current Codex install, but they are not installed from `skills.manifest.json`:
+
+- `imagegen`
+- `openai-docs`
+- `plugin-creator`
+- `skill-creator`
+- `skill-installer`
 
 ## Local Skills
 

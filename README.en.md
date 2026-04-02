@@ -22,17 +22,15 @@ Its job is simple:
 
 The actual installer lives in [wsl-codex-bootstrap](https://github.com/962412311/wsl-codex-bootstrap).
 
-## What Gets Installed
+## What This Covers
 
-This pack currently tracks 33 enabled skills:
+This pack currently tracks 33 skills that bootstrap can install, plus 5 built-in Codex system skills. There are also 4 currently installed Claude plugin packages, but the plugin wrappers themselves do not transfer into Codex. See [`docs/current-state.md`](./docs/current-state.md) and [`docs/plugin-notes.md`](./docs/plugin-notes.md) for the full mapping.
 
-- `web-access`
-- 14 `superpowers` skills
-- `frontend-design`
-- 16 document and technical skills
-- 1 local maintenance skill: `patch-context-hygiene`
+- 33 repository-managed / installable skills
+- 5 built-in Codex system skills
+- 4 currently installed Claude plugin packages
 
-See [`docs/source-inventory.md`](./docs/source-inventory.md) for the exact mapping.
+See [`docs/source-inventory.md`](./docs/source-inventory.md) for the exact repository-managed mapping.
 
 ## How It Works With Bootstrap
 
@@ -47,5 +45,5 @@ See [`docs/upstream-installation.md`](./docs/upstream-installation.md).
 ## Repository Layout
 
 - `skills.manifest.json` - machine-readable manifest consumed by bootstrap
-- `docs/` - source inventory and upstream installation notes
+- `docs/` - source inventory, current state, and upstream installation notes
 - `skills/` - local helper skills used to maintain this pack, such as `patch-context-hygiene`

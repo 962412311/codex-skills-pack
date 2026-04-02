@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "marketplaces": [
+    {
+      "id": "claude-plugins-official",
+      "source": "github",
+      "repo": "https://github.com/anthropics/claude-plugins-official.git",
+      "lastUpdated": "2026-03-30T05:41:29.294Z"
+    },
+    {
+      "id": "anthropic-agent-skills",
+      "source": "github",
+      "repo": "https://github.com/anthropics/skills.git",
+      "lastUpdated": "2026-03-30T05:45:44.745Z"
+    },
+    {
+      "id": "pua-skills",
+      "source": "github",
+      "repo": "https://github.com/tanweai/pua.git",
+      "lastUpdated": "2026-03-30T09:13:46.182Z"
+    }
+  ],
+  "plugins": [
+    {
+      "pluginId": "superpowers@claude-plugins-official",
+      "marketplaceId": "claude-plugins-official",
+      "sourceRepo": "https://github.com/obra/superpowers.git",
+      "version": "5.0.6",
+      "gitCommitSha": "eafe962b18f6c5dc70fb7c8cc7e83e61f4cdde06",
+      "installPath": "plugins/cache/claude-plugins-official/superpowers/5.0.6",
+      "installedAt": "2026-03-26T05:12:55.883Z",
+      "lastUpdated": "2026-03-26T05:12:55.883Z",
+      "restore": {
+        "kind": "codex-skill-package",
+        "installRoot": ".codex/superpowers",
+        "links": [
+          {
+            "source": "skills",
+            "target": ".agents/skills/superpowers",
+            "type": "dir"
+          }
+        ]
+      }
+    },
+    {
+      "pluginId": "frontend-design@claude-plugins-official",
+      "marketplaceId": "claude-plugins-official",
+      "sourceRepo": "https://github.com/anthropics/claude-plugins-official.git",
+      "version": "unknown",
+      "installPath": "plugins/cache/claude-plugins-official/frontend-design/unknown",
+      "installedAt": "2026-03-30T05:41:29.294Z",
+      "lastUpdated": "2026-03-30T05:41:29.294Z",
+      "restore": {
+        "kind": "marketplace-plugin",
+        "sourcePath": "plugins/frontend-design",
+        "installPath": "plugins/cache/claude-plugins-official/frontend-design/unknown"
+      }
+    },
+    {
+      "pluginId": "document-skills@anthropic-agent-skills",
+      "marketplaceId": "anthropic-agent-skills",
+      "sourceRepo": "https://github.com/anthropics/skills.git",
+      "version": "98669c11ca63",
+      "gitCommitSha": "98669c11ca63e9c81c11501e1437e5c47b556621",
+      "installPath": "plugins/cache/anthropic-agent-skills/document-skills/98669c11ca63",
+      "installedAt": "2026-03-30T05:45:44.745Z",
+      "lastUpdated": "2026-03-30T05:45:44.745Z",
+      "restore": {
+        "kind": "marketplace-plugin",
+        "sourcePath": ".",
+        "installPath": "plugins/cache/anthropic-agent-skills/document-skills/98669c11ca63"
+      }
+    },
+    {
+      "pluginId": "pua@pua-skills",
+      "marketplaceId": "pua-skills",
+      "sourceRepo": "https://github.com/tanweai/pua.git",
+      "version": "3.1.0",
+      "gitCommitSha": "5789b84767195d3eecbb52d32f06d175163ca001",
+      "installPath": "plugins/cache/pua-skills/pua/3.1.0",
+      "installedAt": "2026-03-30T09:13:46.182Z",
+      "lastUpdated": "2026-03-30T09:13:46.182Z",
+      "restore": {
+        "kind": "codex-skill-package",
+        "installRoot": ".codex/pua",
+        "links": [
+          {
+            "source": "codex/pua",
+            "target": ".codex/skills/pua",
+            "type": "dir"
+          },
+          {
+            "source": "commands/pua.md",
+            "target": ".codex/prompts/pua.md",
+            "type": "file"
+          }
+        ]
+      }
+    }
+  ]
+}
