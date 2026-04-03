@@ -1,49 +1,99 @@
-﻿# Codex Skills Pack
+# Codex Skills Pack
 
-[English](./README.en.md) | [简体中文](./README.md)
+[English](./README.en.md) | 简体中文
 
-这个仓库是你的 Codex skills 主仓，既维护上游来源清单，也承载你后续新增的个人 skills。
+Codex/Claude Code 的 skill 和 plugin 统一清单仓库。维护上游来源映射、安装路径，以及自建 skills。
 
-bootstrap 仓库的主线脚本会默认回退到这里的 `main` 分支 manifest，所以通常不需要额外配置。
+## 快速安装（无需 bootstrap）
 
-它的作用很直接：
+在没有 wsl-codex-bootstrap 的环境下，可以直接用以下步骤手动安装：
 
-- 告诉 bootstrap 仓库该装哪些 skills
-- 记录每个 skill 来自哪个上游仓库
-- 说明每个 skill 在上游仓库里的准确路径
-- 维护你自己的个人 skills，并把它们纳入同一套 manifest
-- 保留原始安装说明，方便审计和维护
+```bash
+# 1. 克隆所有上游仓库到临时目录
+mkdir -p /tmp/codex-skill-install && cd /tmp/codex-skill-install
+git clone --depth 1 https://github.com/962412311/codex-skills-pack.git
+git clone --depth 1 https://github.com/eze-is/web-access.git
+git clone --depth 1 https://github.com/obra/superpowers.git
+git clone --depth 1 https://github.com/anthropics/claude-plugins-official.git
+git clone --depth 1 https://github.com/anthropics/skills.git
+git clone --depth 1 https://github.com/tanweai/pua.git
 
-## 这不是
+# 2. 同步所有 skills 到 ~/.codex/skills/
+# web-access
+rsync -a web-access/ ~/.codex/skills/web-access/
+# superpowers 14 个 skills
+for s in brainstorming dispatching-parallel-agents executing-plans finishing-a-development-branch receiving-code-review requesting-code-review subagent-driven-development systematic-debugging test-driven-development using-git-worktrees using-superpowers verification-before-completion writing-plans writing-skills; do
+  rsync -a "superpowers/skills/$s/" ~/.codex/skills/$s/
+done
+# frontend-design (来自 claude-plugins-official，非 anthropics/skills)
+rsync -a claude-plugins-official/plugins/frontend-design/skills/frontend-design/ ~/.codex/skills/frontend-design/
+# anthropic agent skills 16 个
+for s in algorithmic-art brand-guidelines canvas-design claude-api doc-coauthoring docx internal-comms mcp-builder pdf pptx skill-creator slack-gif-creator theme-factory web-artifacts-builder webapp-testing xlsx; do
+  rsync -a "skills/skills/$s/" ~/.codex/skills/$s/
+done
+# 自建 skill
+rsync -a codex-skills-pack/skills/patch-context-hygiene/ ~/.codex/skills/patch-context-hygiene/
 
-- 这不是 Windows bootstrap 仓库
-- 这不是 Codex 安装器
-- 这不会在本仓库里直接执行安装
+# 3. 安装 plugins（完整包，含 hooks/agents/commands 等）
+rsync -a superpowers/ ~/.codex/superpowers/
+rsync -a pua/ ~/.codex/pua/
 
-真正负责安装的是 [wsl-codex-bootstrap](https://github.com/962412311/wsl-codex-bootstrap)。
+# 4. 建立符号链接
+mkdir -p ~/.agents/skills ~/.codex/prompts
+ln -sf ~/.codex/superpowers/skills ~/.agents/skills/superpowers
+ln -sf ~/.codex/pua/codex/pua ~/.codex/skills/pua
+ln -sf ~/.codex/pua/commands/pua.md ~/.codex/prompts/pua.md
 
-## 当前会覆盖什么
+# 5. 清理
+rm -rf /tmp/codex-skill-install
+```
 
-这个仓库当前维护 33 个可由 bootstrap 安装的 skills，外加 Codex 自带的 5 个 system skills。当前 Claude 侧还装着 4 个插件包，但插件壳本身不会直接进入 Codex，相关映射见 [`docs/current-state.md`](./docs/current-state.md) 和 [`docs/plugin-notes.md`](./docs/plugin-notes.md)。
+也可以直接让 Claude Code 执行安装：把本仓库路径或 URL 给它，说"帮我安装所有 skill 和 plugin"即可。
 
-- 33 个仓库维护/可安装 skills
-- 5 个 Codex 内建 system skills
-- 4 个当前已装 Claude 插件包
+## Skills 清单（33 个）
 
-精确映射见 [`docs/source-inventory.md`](./docs/source-inventory.md)。
+| 来源 | Skills |
+|------|--------|
+| **eze-is/web-access** | `web-access` |
+| **obra/superpowers** | `brainstorming`, `dispatching-parallel-agents`, `executing-plans`, `finishing-a-development-branch`, `receiving-code-review`, `requesting-code-review`, `subagent-driven-development`, `systematic-debugging`, `test-driven-development`, `using-git-worktrees`, `using-superpowers`, `verification-before-completion`, `writing-plans`, `writing-skills` |
+| **anthropics/claude-plugins-official** | `frontend-design` |
+| **anthropics/skills** | `algorithmic-art`, `brand-guidelines`, `canvas-design`, `claude-api`, `doc-coauthoring`, `docx`, `internal-comms`, `mcp-builder`, `pdf`, `pptx`, `skill-creator`, `slack-gif-creator`, `theme-factory`, `web-artifacts-builder`, `webapp-testing`, `xlsx` |
+| **codex-skills-pack (本仓库)** | `patch-context-hygiene` |
 
-## 怎么配合 bootstrap
+## Plugins 清单（4 个）
 
-bootstrap 仓库会优先读取这里 `main` 分支上的 `skills.manifest.json`，然后自动把对应 skills 安装到 Codex 的 skills 目录。
+| Plugin | 上游仓库 | 安装位置 | 链接 |
+|--------|----------|----------|------|
+| superpowers | obra/superpowers | `~/.codex/superpowers/` | `~/.agents/skills/superpowers` → `skills/` |
+| pua | tanweai/pua | `~/.codex/pua/` | `~/.codex/skills/pua` → `codex/pua/`, `~/.codex/prompts/pua.md` → `commands/pua.md` |
+| frontend-design | anthropics/claude-plugins-official | `~/.codex/skills/frontend-design/` | — |
+| document-skills | anthropics/skills | `~/.codex/skills/{各 skill}/` | — |
 
-如果你要换来源，只需要改 manifest，不需要改安装器主逻辑。
+## 配合 bootstrap 使用
 
-## 原始安装说明
+bootstrap 仓库 ([wsl-codex-bootstrap](https://github.com/962412311/wsl-codex-bootstrap)) 会自动读取本仓库 `main` 分支的 `skills.manifest.json` 和 `plugins.manifest.json` 完成安装。修改来源只需改 manifest，无需改安装器。
 
-见 [`docs/upstream-installation.md`](./docs/upstream-installation.md)。
+## 冲突规则
+
+`frontend-design` 同时存在于 `anthropics/claude-plugins-official` 和 `anthropics/skills`。本仓库统一使用 `claude-plugins-official` 版本（`anthropics/skills` 中的副本已排除）。
 
 ## 仓库结构
 
-- `skills.manifest.json` - bootstrap 消费的机器可读 manifest
-- `docs/` - 来源清单、当前状态和原始安装说明
-- `skills/` - 用于维护这个仓库的本地 helper skills，例如 `patch-context-hygiene`
+```
+codex-skills-pack/
+├── skills.manifest.json      # bootstrap 消费的 skills 清单
+├── plugins.manifest.json     # bootstrap 消费的 plugins 清单
+├── docs/
+│   ├── source-inventory.md   # 上游来源与 skill 映射表
+│   ├── current-state.md      # 当前已安装状态快照
+│   ├── plugin-notes.md       # 插件映射说明
+│   └── upstream-installation.md  # 原始安装说明
+└── skills/                   # 自建本地 skills
+    └── patch-context-hygiene/
+```
+
+## 这不是
+
+- 不是 Windows bootstrap 仓库
+- 不是 Codex 安装器
+- 不在本仓库内执行安装（安装由 bootstrap 或手动完成）
